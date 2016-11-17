@@ -1,11 +1,11 @@
 <h1><%=@plant.name%></h1>
 
-<p>Current gardener: <%=@plant.ownerships(:created_at).last.gardener.first_name + ' ' + @plant.ownerships(:created_at).last.gardener.last_name%></p>
+<p>Current gardener: <%=link_to (@plant.ownerships(:created_at).last.gardener.first_name + ' ' + @plant.ownerships(:created_at).last.gardener.last_name), gardener_path(@plant.ownerships(:created_at).last.gardener)%></p>
 
 <p>All ownerships:</p>
 
 <% @plant.ownerships.each do |ownership|%>
-  <p><%= ownership.gardener.first_name + "," + ownership.created_at.strftime('%m/%d/%Y') %></p>
+  <p><%= (link_to (ownership.gardener.first_name), gardener_path(ownership.gardener)) + "," + ownership.created_at.strftime('%m/%d/%Y') %></p>
 <% end %>
 
 

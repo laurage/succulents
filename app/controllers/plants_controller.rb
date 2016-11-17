@@ -5,6 +5,7 @@ class PlantsController < ApplicationController
   end
 
   def new
+    @plant = Plant.new
   end
 
   def edit
