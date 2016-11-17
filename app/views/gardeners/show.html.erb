@@ -1,2 +1,7 @@
-<h1>Gardeners#show</h1>
-<p>Find me in app/views/gardeners/show.html.erb</p>
+<h1><%=@gardener.first_name + " " + @gardener.last_name%></h1>
+
+<%= link_to "Add a succulent to my garden", new_plant_path %>
+
+<%@gardener.plants.each do |plant|%>
+  <p><%=link_to plant.name, plant_path(plant)%></p>
+<%end%>

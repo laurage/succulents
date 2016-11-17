@@ -10,7 +10,9 @@ p1 = Plant.create(name: "Petite plantule")
 p2 = Plant.create(name: "Marc the plant")
 p3 = Plant.create(name: "Stracrix")
 
+o4 = Ownership.create(gardener: g1, plant: p3, created_at: DateTime.now.days_ago(-10))
 o1 = Ownership.create(gardener: g1, plant: p1)
 o2 = Ownership.create(gardener: g2, plant: p2)
 o3 = Ownership.create(gardener: g2, plant: p3)
-o4 = Ownership.create(gardener: g2, plant: p3, created_at: DateTime.now.days_ago(-10))
+
+
