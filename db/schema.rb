@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20161116164552) do
   end
 
   create_table "ownerships", force: :cascade do |t|
-    t.datetime "date"
     t.integer  "gardener_id"
     t.integer  "plant_id"
     t.datetime "created_at",  null: false
