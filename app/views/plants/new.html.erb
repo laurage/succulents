@@ -1,9 +1,10 @@
 <h1>Add a succulent to my garden</h1>
 
-<%= simple_form_for(@plant) do |f| %>
+<%= simple_form_for([@plant]) do |f| %>
   <%= f.error_notification %>
 
   <%= f.input :name %>
 
   <%= f.button :submit %>
 <% end %>
+
