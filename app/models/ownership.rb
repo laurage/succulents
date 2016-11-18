@@ -1,4 +1,4 @@
 class Ownership < ApplicationRecord
-  belongs_to :gardener
+  belongs_to :user
   belongs_to :plant
 end

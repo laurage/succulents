@@ -1,21 +1,21 @@
 class PlantsController < ApplicationController
   before_action :find_plant, only:[:show]
-  before_action :find_gardener, only:[:new]
+  before_action :find_user, only:[:new, :create]
 
   def show
   end
 
   def new
     @plant = Plant.new
+    raise
   end
 
   def create
-    @gardener = Gardener.find(params[:gardener_id])
-    @plant = Plant.new(plant_params)
-    @plant.save
-    @ownership = Ownership.new(plant: @plant, gardener: @gardener)
-    @ownership.save
-    redirect_to plant_path(@plant)
+    # @plant = Plant.new(plant_params)
+    # @plant.save
+    # @ownership = Ownership.new(plant: @plant, gardener: @gardener)
+    # @ownership.save
+    # redirect_to plant_path(@plant)
   end
 
   def edit
@@ -28,7 +28,7 @@ class PlantsController < ApplicationController
   end
 
   def find_gardener
-    @gardener = Gardener.find(params[:gardener_id])
+    @user = User.find(params[:gardener_id])
   end
 
   def plant_params
