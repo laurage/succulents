@@ -1,6 +1,5 @@
 class PlantsController < ApplicationController
   before_action :find_plant, only:[:show]
-  before_action :find_user, only:[]
 
   def show
   end
@@ -13,6 +12,10 @@ class PlantsController < ApplicationController
     @plant = Plant.new(plant_params)
     @plant.save
 
+    create_ownership
+  end
+
+  def create_ownership
     @ownership = Ownership.new(plant: @plant, user: current_user)
     @ownership.save
     redirect_to plant_path(@plant)
@@ -25,10 +28,6 @@ class PlantsController < ApplicationController
 
   def find_plant
     @plant = Plant.find(params[:id])
-  end
-
-  def find_user
-    @user = User.find(params[:user_id])
   end
 
   def plant_params
