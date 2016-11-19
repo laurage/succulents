@@ -1,12 +1,12 @@
 <h1><%=@user.first_name + " " + @user.last_name%></h1>
 
-<% if policy(User).edit? %>
+<% if policy(@user).edit? %>
   <%= link_to "Edit my profile", edit_user_path %>
 <% end %>
 
-<% if policy(Plant).new? %>
+<% if policy(@user).create_plant? %>
   <%= link_to "Add a succulent to my garden", new_plant_path %>
-<%end%>
+<% end %>
 
 <%@user.plants.each do |plant|%>
   <p><%=link_to plant.name, plant_path(plant)%></p>

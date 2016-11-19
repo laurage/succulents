@@ -11,16 +11,15 @@ class PlantsController < ApplicationController
 
   def create
     @plant = Plant.new(plant_params)
-    @plant.current_owner = true
     @plant.save
-
     create_ownership
   end
 
   def create_ownership
-    @ownership = Ownership.new(plant: @plant, user: current_user)
+    @ownership = Ownership.new(plant: @plant, user: current_user, current_owner:true)
     @ownership.save
     redirect_to plant_path(@plant)
+    authorize @ownership
   end
 
   def edit
@@ -31,7 +30,6 @@ class PlantsController < ApplicationController
   end
 
   def delete
-    #
     @plant.destroy
     authorize @plant
   end

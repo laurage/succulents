@@ -2,9 +2,9 @@ User.destroy_all
 Plant.destroy_all
 Ownership.destroy_all
 
-g1 = User.create(first_name: "Lambda", last_name: "Barfa", email:"vic@email.com", password:"test")
-g2 = User.create(first_name: "Elodie", last_name: "Durand", email:"vic@email.com", password:"12345658")
-g3 = User.create(first_name: "Mic", last_name: "Fallow", email:"vic@email.com", password:"12345658")
+g1 = User.create(first_name: "Arthur", last_name: "Flick", email:"arthur@email.com", password:"priovibi")
+g2 = User.create(first_name: "Elodie", last_name: "Durand", email:"elodie@email.com", password:"grattalourm")
+g3 = User.create(first_name: "Biona", last_name: "Ellis", email:"biona@email.com", password:"12345658")
 g4 = User.create(first_name: "Laura", last_name: "Pedroni", email:"laurage_@hotmail.com", password:"testPass")
 
 
