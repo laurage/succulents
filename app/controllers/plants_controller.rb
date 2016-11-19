@@ -1,15 +1,17 @@
 class PlantsController < ApplicationController
-  before_action :find_plant, only:[:show]
+  before_action :find_plant, only:[:show, :edit, :delete]
 
   def show
   end
 
   def new
     @plant = Plant.new
+    authorize @plant
   end
 
   def create
     @plant = Plant.new(plant_params)
+    @plant.current_owner = true
     @plant.save
 
     create_ownership
@@ -22,12 +24,23 @@ class PlantsController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def update
+  end
+
+  def delete
+    #
+    @plant.destroy
+    authorize @plant
   end
 
   private
 
   def find_plant
     @plant = Plant.find(params[:id])
+    authorize @plant
   end
 
   def plant_params
