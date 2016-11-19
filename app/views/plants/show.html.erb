@@ -1,5 +1,7 @@
 <h1><%=@plant.name%></h1>
-<%= link_to "Edit", edit_plant_path(@plant) %>
+<% if policy(@plant).edit? %>
+  <%= link_to "Edit", edit_plant_path(@plant) %>
+<% end %>
 
 <p>Current gardener: <%=link_to (@plant.ownerships(:created_at).last.user.first_name + ' ' + @plant.ownerships(:created_at).last.user.last_name), user_path(@plant.ownerships(:created_at).last.user)%></p>
 

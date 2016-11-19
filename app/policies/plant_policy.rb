@@ -18,7 +18,7 @@ class PlantPolicy < ApplicationPolicy
   end
 
   def user_is_owner_or_admin?
-    #record.ownerships.where(user_id:5).first.current_owner
-    record.user == user
+    # Checks that the plant did belong to the user at some point. If so, checks that the current_owner or the plant is the current_user
+    record.ownerships.where(user_id:user).first.current_owner if record.ownerships.where(user_id:user).exists?
   end
 end
