@@ -55,3 +55,5 @@ gem "simple_form"
 gem "autoprefixer-rails"
 
 gem 'devise'
+
+gem "pundit"

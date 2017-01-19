@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_find, only:[:show]
+  before_action :user_find, only:[:show, :edit]
 
   def top
   end
@@ -7,13 +7,20 @@ class UsersController < ApplicationController
   def show
   end
 
-  def new
+  def edit
+
   end
 
-  def edit
-  end
+  private
 
   def user_find
     @user = User.find(params[:id])
+    authorize @user
+  end
+
+  def user_params
+
   end
 end
+
+
